@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<variable
+			name="data"
+			type="com.prongbang.playbacker.main.domain.LiveStream" />
+	</data>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/vRootContent"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<com.google.android.exoplayer2.ui.PlayerView
+			android:id="@+id/playerView"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@color/black">
+
+			<androidx.appcompat.widget.AppCompatTextView
+				android:id="@+id/debugTexView"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:paddingLeft="4dp"
+				android:paddingRight="4dp"
+				android:textSize="10sp"
+				android:visibility="invisible"
+				tools:ignore="SmallSp" />
+		</com.google.android.exoplayer2.ui.PlayerView>
+
+		<androidx.appcompat.widget.AppCompatImageView
+			android:id="@+id/avatarImage"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:layout_margin="@dimen/vertical_margin"
+			android:src="@drawable/ic_avatar"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<androidx.appcompat.widget.AppCompatImageView
+			android:id="@+id/closeButton"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="@dimen/vertical_margin"
+			android:background="?attr/selectableItemBackgroundBorderless"
+			android:src="@drawable/ic_close"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+			android:id="@+id/authorText"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/vertical_margin"
+			android:text="@{data.fullName}"
+			android:textColor="@android:color/white"
+			android:textSize="16sp"
+			android:textStyle="bold"
+			app:layout_constraintBottom_toBottomOf="@+id/avatarImage"
+			app:layout_constraintStart_toEndOf="@+id/avatarImage"
+			app:layout_constraintTop_toTopOf="@+id/avatarImage"
+			tools:text="John Wick"
+			tools:textColor="@android:color/black" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/vertical_margin"
+			android:text="@{data.isLiving()}"
+			android:textColor="#FF0000"
+			android:textStyle="bold"
+			app:layout_constraintStart_toEndOf="@+id/avatarImage"
+			app:layout_constraintTop_toBottomOf="@+id/authorText"
+			tools:text="LIVE" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

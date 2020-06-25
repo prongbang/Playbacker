@@ -1,0 +1,5 @@
+<resources>
+	<string name="app_name">Playbacker</string>
+	<string name="selection_disabled">can not select</string>
+	<string name="enable_random_adaptation">true</string>
+</resources>

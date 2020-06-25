@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<variable
+			name="data"
+			type="com.prongbang.playbacker.main.domain.LiveStream" />
+	</data>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<androidx.cardview.widget.CardView
+			android:layout_width="match_parent"
+			android:layout_height="250dp"
+			android:layout_marginStart="@dimen/vertical_margin"
+			android:layout_marginTop="8dp"
+			android:layout_marginEnd="@dimen/vertical_margin"
+			android:layout_marginBottom="8dp"
+			android:foreground="?attr/selectableItemBackground"
+			app:cardCornerRadius="4dp"
+			app:cardElevation="4dp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent">
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:paddingBottom="@dimen/vertical_margin">
+
+				<androidx.appcompat.widget.AppCompatImageView
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_marginBottom="@dimen/vertical_margin"
+					android:background="#F4F4F4"
+					app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:layout_editor_absoluteX="16dp" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_margin="@dimen/vertical_margin"
+					android:text="@{data.isLiving}"
+					android:textColor="#FF0000"
+					android:textStyle="bold"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:text="LIVE" />
+
+				<androidx.appcompat.widget.AppCompatImageView
+					android:id="@+id/appCompatImageView"
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:layout_marginStart="@dimen/vertical_margin"
+					android:src="@drawable/ic_avatar"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintStart_toStartOf="parent" />
+
+				<androidx.constraintlayout.widget.ConstraintLayout
+					android:id="@+id/constraintLayout"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="8dp"
+					android:layout_marginEnd="@dimen/vertical_margin"
+					app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
+					app:layout_constraintTop_toTopOf="@+id/appCompatImageView">
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/locationText"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:ellipsize="end"
+						android:lines="1"
+						android:text="@{data.locationName}"
+						android:textSize="16sp"
+						android:textStyle="bold"
+						app:layout_constraintBottom_toTopOf="@+id/addressText"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toStartOf="parent"
+						tools:text="Golden Town Suksawat Buddha." />
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/addressText"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="8dp"
+						android:ellipsize="end"
+						android:lines="1"
+						android:text="@{data.address}"
+						app:layout_constraintBottom_toBottomOf="parent"
+						app:layout_constraintEnd_toEndOf="parent"
+						tools:text="Etiimrewmmitr Road, Khwaeng Bang Kapi, Khet Huai Khwang, Krung Thep Maha Nakhon 10310, Thailand" />
+				</androidx.constraintlayout.widget.ConstraintLayout>
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+		</androidx.cardview.widget.CardView>
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
